@@ -1,0 +1,33 @@
+<div class="layout">
+  <app-header class="header"></app-header>
+
+  <div class="content-area">
+    <app-side-bar class="sidebar"></app-side-bar>
+
+    <app-second-side
+      class="second-side"
+      (selectItem)="onSectionChange($event)"
+    ></app-second-side>
+
+    <main class="main-content">
+      <ng-container [ngSwitch]="selectedSection">
+        <div *ngSwitchCase="'Dashboard'">
+          <app-dashboard></app-dashboard>
+        </div>
+
+        <div *ngSwitchCase="'Employés'">
+          <app-worker></app-worker>
+        </div>
+
+        <div *ngSwitchCase="'Documents'">
+          <app-document></app-document>
+        </div>
+
+        <div *ngSwitchCase="'Paramètres'">
+          <h2>⚙️ Paramètres</h2>
+          <p>Configuration et préférences.</p>
+        </div>
+      </ng-container>
+    </main>
+  </div>
+</div>

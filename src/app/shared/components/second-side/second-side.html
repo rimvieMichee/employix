@@ -1,0 +1,12 @@
+<div class="second-side-container">
+  <ul class="menu">
+    <li
+      *ngFor="let item of menuItems"
+      (click)="select(item.label)"
+      [class.active]="item.label === selected"
+    >
+      <span class="icon">{{ item.icon }}</span>
+      <span class="label">{{ item.label }}</span>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,14 @@
+<div class="sidebar-container">
+  <div class="company-list">
+    @for (c of companies(); track c.letter) {
+    <app-company-card
+      [letter]="c.letter"
+      [name]="c.name"
+      [active]="c.active"
+      (click)="selectCompany(c.letter)"
+    ></app-company-card>
+    }
+  </div>
+
+  <button class="add-btn">+</button>
+</div>

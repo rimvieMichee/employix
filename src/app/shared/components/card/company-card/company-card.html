@@ -1,0 +1,9 @@
+<div
+  class="company-card"
+  [class.active]="active()"
+  (mouseenter)="hovered = true"
+  (mouseleave)="hovered = false"
+>
+  <span *ngIf="!hovered">{{ letter() }}</span>
+  <span *ngIf="hovered">{{ name() }}</span>
+</div>
