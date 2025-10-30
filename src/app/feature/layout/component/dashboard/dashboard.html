@@ -1,1 +1,56 @@
-<p>dashboard works!</p>
+<div class="dashboard-container animate-fade-in">
+  <!-- 🔹 CARTES PRINCIPALES -->
+  <div class="cards">
+    <div class="card animate-slide-up" *ngFor="let s of stats" [style.borderTopColor]="s.color">
+      <h3>{{ s.title }}</h3>
+      <h2>{{ s.value | currency:'EUR':'symbol':'1.0-0' }}</h2>
+      <p [style.color]="s.color">{{ s.change }}</p>
+    </div>
+  </div>
+
+  <!-- 🔸 GRAPHIQUES -->
+  <div class="charts">
+    <div class="chart-card animate-slide-up">
+      <h3>Répartition des dépenses</h3>
+      <canvas baseChart
+              [data]="pieChartData"
+              [options]="pieChartOptions"
+              [type]="pieChartType">
+      </canvas>
+    </div>
+
+    <div class="chart-card animate-slide-up">
+      <h3>Évolution Mensuelle</h3>
+      <canvas baseChart
+              [data]="barChartData"
+              [options]="barChartOptions"
+              [type]="'bar'">
+      </canvas>
+    </div>
+  </div>
+
+  <!-- 🔻 ACTIVITÉ RÉCENTE -->
+  <div class="recent-activity animate-fade-in">
+    <h3>Activité Récente</h3>
+    <table>
+      <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Date</th>
+        <th>Montant</th>
+        <th>Statut</th>
+        <th>Méthode</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let act of recentActivities">
+        <td>{{ act.name }}</td>
+        <td>{{ act.date }}</td>
+        <td>{{ act.amount }}</td>
+        <td>{{ act.status }}</td>
+        <td>{{ act.method }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

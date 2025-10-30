@@ -1,0 +1,112 @@
+.dashboard-container {
+  background: #0f172a;
+  color: #fff;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/*=================== CARTES PRINCIPALES */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+
+  .card {
+    background: #1e293b;
+    padding: 1.5rem;
+    border-radius: 16px;
+    border-top: 5px solid;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    h3 {
+      font-size: 1rem;
+      color: #94a3b8;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin: 0.5rem 0;
+    }
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+/*=================== GRAPHIQUES */
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+
+  .chart-card {
+    background: #1e293b;
+    padding: 1.5rem;
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    h3 {
+      margin-bottom: 1rem;
+      color: #e2e8f0;
+    }
+  }
+}
+
+/*=================== TABLE ACTIVITÉ */
+.recent-activity {
+  background: #1e293b;
+  border-radius: 16px;
+  padding: 1.5rem;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+
+    th, td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+
+    thead {
+      color: #94a3b8;
+      border-bottom: 1px solid #334155;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid #334155;
+      transition: background 0.3s ease;
+      &:hover {
+        background: #334155;
+      }
+    }
+  }
+}
+
+/*=================== ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out;
+}
